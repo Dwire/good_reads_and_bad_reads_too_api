@@ -1,0 +1,2 @@
+class ClubReadingList < ApplicationRecord
+end
