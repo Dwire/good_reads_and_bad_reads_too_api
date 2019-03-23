@@ -1,11 +1,11 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   # before_action :current_user, only: [:show]
-  #
-  # def index
-  #   @users = User.all
-  #   render json: @users, status: 200
-  # end
-  #
+
+  def index
+    @users = User.all
+    render json: @users, status: 200
+  end
+
   # def show
   # end
   #

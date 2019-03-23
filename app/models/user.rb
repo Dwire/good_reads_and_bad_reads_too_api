@@ -10,4 +10,13 @@ class User < ApplicationRecord
 
   # has_many :user_reviews
   # has_many :reviewed_books, through: :user_reviews, source: :book
+
+  def to_json
+    {
+      id: self.id,
+      name: self.name,
+      email: self.email
+    }
+  end
+
 end

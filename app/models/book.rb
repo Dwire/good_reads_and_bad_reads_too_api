@@ -5,6 +5,10 @@ class Book < ApplicationRecord
   has_many :user_reviews
   # has_many :users, through: :user_reviews
 
+  # def to_json
+  #   {title: self.title}
+  # end
+
   def conversation
     UserBook.all.select do |user_book|
       user_book.book == self

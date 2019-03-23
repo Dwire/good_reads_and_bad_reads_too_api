@@ -1,8 +1,9 @@
-class BooksController < ApplicationController
+class Api::V1::BooksController < ApplicationController
   before_action :current_book, only: [:show]
 
   def index
     @books = Book.all
+    render json: @books, status: 200
   end
 
   def show
