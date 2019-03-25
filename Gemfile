@@ -30,6 +30,11 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 gem 'faker'
 
+# rest client
+gem 'rest-client'
+#Env files to keep api keys safe
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
