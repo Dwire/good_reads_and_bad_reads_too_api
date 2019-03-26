@@ -34,6 +34,8 @@ gem 'faker'
 gem 'rest-client'
 #Env files to keep api keys safe
 gem 'dotenv-rails', groups: [:development, :test]
+#jwt token for authentication
+gem 'jwt'
 
 
 group :development, :test do
