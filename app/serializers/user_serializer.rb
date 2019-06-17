@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :bio, :genres, :email, :read_books, :reading_list, :book_clubs, :high_rating, :this_year
+  attributes :id, :name, :bio, :genres, :email, :read_books, :reading_list, :book_clubs, :persanal_stats
+  # :high_rating, :this_year
 
   # has_many :books,
 
@@ -40,16 +41,31 @@ class UserSerializer < ActiveModel::Serializer
     end
   end
 
-  def this_year
-    object.user_books.select do |book|
-      book.created_at.strftime('%Y').to_i == Time.new.strftime('%Y').to_i
-    end.count
+  def reader_stats
+    {
+     this_year: object.user_books.select do |book|
+                   book.created_at.strftime('%Y').to_i == Time.new.strftime('%Y').to_i
+                 end.count,
+     highest_rated: object.user_books.select do |book|
+                       book.reader_rating > 3.9
+                     end,
+     last_book: object.user_books.max_by do |book|
+                   book.created_at
+                 end
+     }
+   # genre:
   end
 
-  def high_rating
-    object.user_books.select do |book|
-      book.reader_rating > 3.9
-    end
-  end
+  # def this_year
+  #   object.user_books.select do |book|
+  #     book.created_at.strftime('%Y').to_i == Time.new.strftime('%Y').to_i
+  #   end.count
+  # end
+  #
+  # def high_rating
+  #   object.user_books.select do |book|
+  #     book.reader_rating > 3.9
+  #   end
+  # end
 
 end
