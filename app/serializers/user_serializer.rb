@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :bio, :genres, :email, :read_books, :reading_list, :book_clubs, :persanal_stats
+  attributes :id, :name, :bio, :genres, :email, :read_books, :reading_list, :book_clubs
+  # , :persanal_stats
   # :high_rating, :this_year
 
   # has_many :books,
