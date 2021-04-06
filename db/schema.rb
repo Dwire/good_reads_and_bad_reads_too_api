@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_154859) do
   end
 
   create_table "books", force: :cascade do |t|
+    t.integer "gr_author_id"
+    t.integer "gr_book_id"
+    t.integer "gr_average_rating"
+    t.string "image_url"
+    t.string "small_image_url"
     t.string "title"
     t.integer "page_count"
     t.string "author"
